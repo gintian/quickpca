@@ -13,9 +13,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.wltea/IKAnalyzer
     compile group: 'org.wltea', name: 'IKAnalyzer', version: '2012'
-// https://mvnrepository.com/artifact/org.wltea/IKAnalyzer
     compile group: 'org.wltea', name: 'IKAnalyzer', version: '1.0'
 
 
