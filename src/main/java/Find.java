@@ -80,7 +80,7 @@ public class Find {
         else {
             String[] _tx = t.split(",");
             String[] _t = arraySort(_tx);
-            File f = new File("/Users/wonmo/Desktop/quickpcagit/支行列表.txt");
+            File f = new File("banklist.txt");
             int n = 0;
             int index_num = index_max;
             if (_t.length < index_max) index_num = _t.length;

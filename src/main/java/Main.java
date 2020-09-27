@@ -1,7 +1,6 @@
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.List;
 
 public class Main {
 
@@ -9,7 +8,7 @@ public class Main {
         HashMap<String, String> BankFind = new HashMap<String, String>();
         FileReader fr = null;
         try {
-            fr = new FileReader("/Users/wonmo/Desktop/quickpcagit/支行索引.txt");
+            fr = new FileReader("bankindex.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             while ((line = br.readLine()) != null) {
@@ -28,13 +27,28 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        System.out.println("=============================================");
+        System.out.println("");
+        System.out.println("          欢迎使用全国支行快速查询 v0.1");
+        System.out.println("");
+        System.out.println("    作者：Y = A * x + B       日期：2020-09-27");
+        System.out.println("");
+        System.out.println("GitHub：https://github.com/iwonmo/quickpca.git");
+        System.out.println("");
+        System.out.println("=============================================");
         HashMap BankFind = initQuick();
         if(BankFind == null || BankFind.isEmpty())
         {
-            System.out.println("初始化索引失败");
+            System.out.println("初始化索引失败 ...");
         }else{
-            List list = Find.Find("未来路", BankFind);
-            System.out.println(list);
+            try {
+                System.out.println("初始化支行索引 ... ok");
+                GlobalVariable.set(BankFind);
+                new Server().bind(3001);
+            } catch (Exception e) {
+                System.out.println("启动失败 ...");
+                e.printStackTrace();
+            }
         }
     }
 }
